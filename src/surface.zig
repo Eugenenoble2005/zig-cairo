@@ -6,8 +6,20 @@ pub const Surface = opaque {
     pub const CreateImage = cairo_image_surface_create;
 
     extern fn cairo_surface_write_to_png(surface: *Surface, file: [*:0]const u8) Status;
-    pub fn WriteToPng(self: *Surface, file: [*:0]const u8) Status {
-        return cairo_surface_write_to_png(self, file);
-    }
+    pub const writeToPng = cairo_surface_write_to_png;
 
+    extern fn cairo_image_surface_create_from_image(filename: [*:0]const u0) *Surface;
+    pub const CreateImageFromPng = cairo_image_surface_create_from_image;
+
+    extern fn cairo_surface_status(surface: *Surface) Status;
+    pub const GetStatus = cairo_surface_status;
+
+    extern fn cairo_image_surface_get_width(surface: *Surface) c_int;
+    pub const GetWidth = cairo_image_surface_get_width;
+
+    extern fn cairo_image_surface_get_height(surface: *Surface) c_int;
+    pub const GetHeight = cairo_image_surface_get_height;
+
+    extern fn cairo_image_surface_get_stride(surface: *Surface) c_int;
+    pub const GetStride = cairo_image_surface_get_stride;
 };

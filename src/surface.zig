@@ -8,8 +8,8 @@ pub const Surface = opaque {
     extern fn cairo_surface_write_to_png(surface: *Surface, file: [*:0]const u8) Status;
     pub const writeToPng = cairo_surface_write_to_png;
 
-    extern fn cairo_image_surface_create_from_image(filename: [*:0]const u0) *Surface;
-    pub const CreateImageFromPng = cairo_image_surface_create_from_image;
+    extern fn cairo_image_surface_create_from_png(filename: [*:0]const u8) *Surface;
+    pub const CreateImageFromPng = cairo_image_surface_create_from_png;
 
     extern fn cairo_surface_status(surface: *Surface) Status;
     pub const GetStatus = cairo_surface_status;

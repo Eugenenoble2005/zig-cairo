@@ -22,4 +22,9 @@ pub const Surface = opaque {
 
     extern fn cairo_image_surface_get_stride(surface: *Surface) c_int;
     pub const GetStride = cairo_image_surface_get_stride;
+
+    extern fn cairo_image_surface_create_for_data(data: [*:0]u8, format: Format, width: c_int, height: c_int, stride: c_int) ?*Surface;
+    pub const CreateFromData = cairo_image_surface_create_for_data;
+
+    
 };
